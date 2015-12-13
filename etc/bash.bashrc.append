@@ -1,0 +1,11 @@
+
+# fix console font
+if [ $TERM = 'linux' ]; then
+    setfont lat2-16 -m 8859-2
+fi
+
+# aliases
+alias vi="vim"
+alias view="vim -R"
+alias sudo="sudo "
+
