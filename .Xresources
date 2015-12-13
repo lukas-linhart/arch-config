@@ -1,0 +1,16 @@
+! Xft settings -----------------------------------
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hindstyle: hindslight
+
+! URxvt settings ---------------------------------
+URxvt.font: xft:Source Code Pro
+URxvt.boldFont xft:Source Code Pro Bold
+URxvt.scrollBar: false
+
+! mouse settings ---------------------------------
+!Xcursor.size: 16
+
+! ------------------------------------------------
