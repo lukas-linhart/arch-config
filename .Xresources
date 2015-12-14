@@ -6,8 +6,8 @@ Xft.hinting: true
 Xft.hindstyle: hindslight
 
 ! URxvt settings ---------------------------------
-URxvt.font: xft:Source Code Pro
-URxvt.boldFont xft:Source Code Pro Bold
+URxvt.font: xft:Source Code Pro:size=11
+URxvt.boldFont xft:Source Code Pro Bold:size=11
 URxvt.scrollBar: false
 URxvt.background: #000000
 URxvt.foreground: #e0e0e0
