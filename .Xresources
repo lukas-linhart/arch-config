@@ -10,7 +10,9 @@ URxvt.font: xft:Source Code Pro
 URxvt.boldFont xft:Source Code Pro Bold
 URxvt.scrollBar: false
 URxvt.background: #000000
-URxvt.foreground: #ffffff
+URxvt.foreground: #e0e0e0
+URxvt.cursorColor: #ffcc00
+URxvt.fading: 10
 
 ! mouse settings ---------------------------------
 !Xcursor.size: 16
