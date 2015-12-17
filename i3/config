@@ -83,7 +83,7 @@ bindsym $mod+space focus mode_toggle
 #========== UNSORTED ==========
 
 # lock the screen
-#bindsym Control+$mod+l exec i3lock -c 000000 -t -i /path/to/image.png
+bindsym Control+$mod+l exec i3blurlock
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal

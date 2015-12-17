@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Dependencies: scrot, imagemagick, i3lock
+
+PLAIN=/tmp/i3blurlock_plain.png
+BLURRED=/tmp/i3blurlock_blurred.png
+
+SHRINK=20%
+ENLARGE=500%
+
+scrot $PLAIN
+#convert $PLAIN -blur 0x5 $BLURRED
+convert $PLAIN -level 0%,100%,0.6 -filter Gaussian -resize $SHRINK -define filter:sigma=1.5 -resize $ENLARGE $BLURRED
+i3lock -i $BLURRED
