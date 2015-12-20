@@ -1,0 +1,180 @@
+# i3 config file (v4)
+
+# mod key
+set $mod Mod1
+
+# vim arrow keys
+set $left h
+set $right l
+set $up k
+set $down j
+
+
+########## FOCUSING ##########
+# change focus by vim arrow keys
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# change focus by regular arrow keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# focus parent container
+bindsym $mod+a focus parent
+
+# focus child container
+bindsym $mod+Shift+a focus child
+
+
+########## MOVING WINDOWS ##########
+# move focused window by vim arrow keys
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# move focused window by regular arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
+########## APPEARANCE ##########
+# font
+font pango:Source Code Pro 11
+
+
+########## MOUSE ##########
+# focus does not follow mouse
+focus_follows_mouse no
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+
+########## LAYOUT MANIPULATION ##########
+# split in horizontal orientation
+bindcode $mod+47 split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+
+########## [placeholder] ##########
+#========== UNSORTED ==========
+
+# lock the screen
+bindsym Control+$mod+l exec i3blurlock
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# move current workspace to right output
+bindsym $mod+m move workspace to output right
+
+# switch to workspace
+bindcode $mod+10 workspace 1
+bindcode $mod+11 workspace 2
+bindcode $mod+12 workspace 3
+bindcode $mod+13 workspace 4
+bindcode $mod+14 workspace 5
+bindcode $mod+15 workspace 6
+bindcode $mod+16 workspace 7
+bindcode $mod+17 workspace 8
+bindcode $mod+18 workspace 9
+bindcode $mod+19 workspace 10
+
+# move focused container to workspace
+bindcode $mod+Shift+10 move container to workspace 1
+bindcode $mod+Shift+11 move container to workspace 2
+bindcode $mod+Shift+12 move container to workspace 3
+bindcode $mod+Shift+13 move container to workspace 4
+bindcode $mod+Shift+14 move container to workspace 5
+bindcode $mod+Shift+15 move container to workspace 6
+bindcode $mod+Shift+16 move container to workspace 7
+bindcode $mod+Shift+17 move container to workspace 8
+bindcode $mod+Shift+18 move container to workspace 9
+bindcode $mod+Shift+19 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left resize shrink width 10 px or 2 ppt
+        bindsym $up resize grow height 10 px or 2 ppt
+        bindsym $down resize shrink height 10 px or 2 ppt
+        bindsym $right resize grow width 10 px or 2 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 2 ppt
+        bindsym Down resize grow height 10 px or 2 ppt
+        bindsym Up resize shrink height 10 px or 2 ppt
+        bindsym Right resize grow width 10 px or 2 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+#exec --no-startup-id nm-applet
+#exec --no-startup-id dropbox start
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command i3status
+        tray_output primary
+}
+
+# THEME SPECIFIC SETTINGS BELOW
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run -fn 'Source Code Pro'
+
+# load Xresources and wallpaper
+exec --no-startup-id xrdb ~/.Xresources-dark
+exec --no-startup-id feh --bg-fill /usr/share/backgrounds/arch_bg_dark.png
+
+# window colors
+# class                     border      background  text        indicator
+client.focused              #4c7899     #285577     #ffffff     #2e9ef4
+client.focused_inactive     #333333     #5f676a     #ffffff     #484e50
+client.unfocused            #333333     #222222     #888888     #292d2e
+client.urgent               #2f343a     #900000     #ffffff     #900000
+client.placeholder          #000000     #0c0c0c     #ffffff     #000000
+client.background           #000000

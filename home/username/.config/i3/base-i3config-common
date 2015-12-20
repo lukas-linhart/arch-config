@@ -91,11 +91,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'Source Code Pro'
-
 # move current workspace to right output
-bindsym $mod+m i3-msg move workspace to output right
+bindsym $mod+m move workspace to output right
 
 # switch to workspace
 bindcode $mod+10 workspace 1
@@ -163,3 +160,5 @@ bar {
         status_command i3status
         tray_output primary
 }
+
+# THEME SPECIFIC SETTINGS BELOW

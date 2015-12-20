@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=i3 (light)
+Comment=i3 with light theme
+Exec=i3 -c /home/__USERNAME__/.config/i3/config-light
+TryExec=i3
+Type=Application
+X-LightDM-DesktopName=i3
+DesktopNames=i3
+

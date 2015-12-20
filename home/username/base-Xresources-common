@@ -3,18 +3,13 @@ Xft.dpi: 96
 Xft.antialias: true
 Xft.rgba: rgb
 Xft.hinting: true
-Xft.hindstyle: hindslight
+Xft.hintstyle: hintslight
 
 ! URxvt settings ---------------------------------
 URxvt.font: xft:Source Code Pro:size=11
 URxvt.boldFont xft:Source Code Pro Bold:size=11
 URxvt.scrollBar: false
-URxvt.background: #000000
-URxvt.foreground: #e0e0e0
-URxvt.cursorColor: #ffcc00
-URxvt.fading: 10
 
-! mouse settings ---------------------------------
+! other ------------------------------------------
 !Xcursor.size: 16
 
-! ------------------------------------------------

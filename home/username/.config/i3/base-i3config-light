@@ -1,0 +1,17 @@
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run -fn 'Source Code Pro' -nb '#ddd' -nf '#000' -sb '#08c' -sf '#fff'
+
+# (re)load Xresources and wallpaper
+exec_always --no-startup-id xrdb ~/.Xresources-light
+exec_always --no-startup-id feh --bg-fill --no-fehbg /usr/share/backgrounds/arch_bg_light.png
+
+# window colors
+# class                     border      background  text        indicator
+client.focused              #4c7899     #285577     #ffffff     #2e9ef4
+client.focused_inactive     #a0a0a0     #cccccc     #202020     #a0a0a0
+client.unfocused            #a0a0a0     #e0e0e0     #202020     #a0a0a0
+client.urgent               #cc0000     #800000     #ffffff     #cc0000
+client.placeholder          #000000     #0c0c0c     #ffffff     #000000
+client.background           #ffffff
+

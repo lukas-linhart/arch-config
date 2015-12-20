@@ -1,0 +1,5 @@
+[User]
+Language=en_US.utf8
+XSession=i3
+Icon=/var/lib/AccountsService/icons/__USERNAME__
+SystemAccount=false
