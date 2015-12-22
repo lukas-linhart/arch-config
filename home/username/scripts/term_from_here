@@ -1,20 +1,13 @@
 #!/usr/bin/env bash
 
-if [ $1 = 'debug' ]
-then
-    DEBUG=true
-    DEBUG_FILE=/tmp/open_terminal_from_here_debug.txt
+ACTIVE_WINDOW_ID=$(xdotool getactivewindow)
+
+if [ -z "$ACTIVE_WINDOW_ID" ]; then
+    exec urxvt
 fi
 
-ACTIVE_WINDOW_ID=$(xdotool getactivewindow)
 OWNER_PID=$(xdotool getwindowpid $ACTIVE_WINDOW_ID)
 CHILDREN_PIDS=$(ps -ef | awk '{print $2 " " $3}' | egrep $OWNER_PID\$ | awk '{print $1}')
-
-if [ "$DEBUG" = true ]; then
-    echo "active window id:" $ACTIVE_WINDOW_ID > $DEBUG_FILE
-    echo "active window owner pid:" $OWNER_PID >> $DEBUG_FILE
-    echo "children pids:" $CHILDREN_PIDS >> $DEBUG_FILE
-fi
 
 while read line; do
     WINDOW_ID=$(</proc/$line/environ tr \\0 \\n | sed -n 's/^WINDOWID=//p')
@@ -27,15 +20,7 @@ if [ -z "$ACTIVE_WINDOW_PID" ]; then
     ACTIVE_WINDOW_PID=$OWNER_PID
 fi
 
-if [ "$DEBUG" = true ]; then
-    echo "active window pid:" $ACTIVE_WINDOW_PID >> $DEBUG_FILE
-fi
-
 ACTIVE_WINDOW_CWD=$(ls -al /proc/$ACTIVE_WINDOW_PID/cwd | awk '{print $(NF)}')
 
-if [ "$DEBUG" = true ]; then
-    echo "active window cwd:" $ACTIVE_WINDOW_CWD >> $DEBUG_FILE
-fi
-
-exec "urxvt --cd $ACTIVE_WINDOW_CWD"
+exec urxvt -cd $ACTIVE_WINDOW_CWD
 

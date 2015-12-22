@@ -86,7 +86,8 @@ bindsym $mod+space focus mode_toggle
 bindsym Control+$mod+l exec i3blurlock
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec term_from_here
+bindsym $mod+Shift+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -166,9 +167,9 @@ bar {
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -fn 'Source Code Pro'
 
-# load Xresources and wallpaper
-exec --no-startup-id xrdb ~/.Xresources-dark
-exec --no-startup-id feh --bg-fill /usr/share/backgrounds/arch_bg_dark.png
+# (re)load Xresources and wallpaper
+exec_always --no-startup-id xrdb ~/.Xresources-dark
+exec_always --no-startup-id feh --bg-fill --no-fehbg /usr/share/backgrounds/arch_bg_dark.png
 
 # window colors
 # class                     border      background  text        indicator
@@ -178,3 +179,4 @@ client.unfocused            #333333     #222222     #888888     #292d2e
 client.urgent               #2f343a     #900000     #ffffff     #900000
 client.placeholder          #000000     #0c0c0c     #ffffff     #000000
 client.background           #000000
+

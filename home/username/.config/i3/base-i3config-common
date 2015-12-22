@@ -86,7 +86,8 @@ bindsym $mod+space focus mode_toggle
 bindsym Control+$mod+l exec i3blurlock
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec term_from_here
+bindsym $mod+Shift+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
