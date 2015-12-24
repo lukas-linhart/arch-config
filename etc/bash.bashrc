@@ -21,4 +21,5 @@ PS4='+ '
 alias vi="vim"
 alias view="vim -R"
 alias sudo="sudo "
+alias tree="tree -C"
 
