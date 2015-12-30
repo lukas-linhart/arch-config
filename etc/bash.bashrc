@@ -18,8 +18,9 @@ PS4='+ '
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
 # aliases
-alias vi="vim"
-alias view="vim -R"
-alias sudo="sudo "
-alias tree="tree -C"
+alias vi='vim'
+alias view='vim -R'
+alias sudo='sudo '
+alias tree='tree -C'
+alias ls='ls --color=auto'
 

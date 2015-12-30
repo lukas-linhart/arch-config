@@ -10,6 +10,14 @@ URxvt.font: xft:Source Code Pro:size=11
 URxvt.boldFont xft:Source Code Pro Bold:size=11
 URxvt.scrollBar: false
 
+! copy/paste -------------------------------------
+URxvt.perl-ext-common: default,clipboard
+URxvt.iso14755: False
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.clipboard.copycmd: xsel -fb
+URxvt.clipboard.pastecmd: xsel -ob
+
 ! other ------------------------------------------
 !Xcursor.size: 16
 

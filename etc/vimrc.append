@@ -1,4 +1,6 @@
 
 set nu
 set hlsearch
+set nowrap
 set mouse=a
+
