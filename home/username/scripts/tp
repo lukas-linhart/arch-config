@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# File: tp
+# turn touchpad on and off
+
+status=$(synclient | grep TouchpadOff | awk '{print $NF}')
+
+echo $status
+
+if [ $status -eq 0 ]; then
+    new_status='1'
+else
+    new_status='0'
+fi
+
+exec synclient TouchpadOff=$new_status
+

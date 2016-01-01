@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# file: active-window-title
+
+echo $(wmctrl -lp | awk '{$1=$2=$4=""; print $0}' | grep $(ppid $(active-shell-pid)) | awk '{$1=""; print $0}' | xargs)
+

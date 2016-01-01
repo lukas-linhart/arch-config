@@ -1,6 +1,10 @@
 ! theme-based settings ---------------------------
-URxvt.background: #000000
-URxvt.foreground: #e0e0e0
+URxvt.background: black
+URxvt.foreground: white
 URxvt.cursorColor: #ffcc00
 URxvt.cursorColor2: #000000
+
+URxvt.color10: rgb:00/cc/00
+URxvt.color11: rgb:ff/cc/00
+URxvt.color12: rgb:00/88/cc
 

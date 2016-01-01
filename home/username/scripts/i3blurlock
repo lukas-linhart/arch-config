@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# file: i3blurlock
 
 # Dependencies: scrot, imagemagick, i3lock
 
@@ -10,5 +11,6 @@ ENLARGE=500%
 
 scrot $PLAIN
 #convert $PLAIN -blur 0x5 $BLURRED
-convert $PLAIN -level 0%,100%,0.6 -filter Gaussian -resize $SHRINK -define filter:sigma=1.5 -resize $ENLARGE $BLURRED
+convert $PLAIN -level 0%,100%,0.6 -filter Gaussian -resize $SHRINK -define filter:sigma=1.5 -resize $ENLARGE /home/lookaasheq/Dropbox/projects/arch-config/home/username/scripts/lock.png -gravity center -composite  $BLURRED 
 i3lock -i $BLURRED
+

@@ -1,2 +1,24 @@
 #!/usr/bin/env bash
-xdotool getactivewindow set_window --name "$*"
+# file: tle
+
+tle_file_name="$(_tle-file-prefix)$(active-shell-pid)"
+
+if [[ -z "$1" ]]; then
+    # no parameters, delete tle file if it exists
+    [[ -f "$tle_file_name" ]] && rm -f "$tle_file_name"
+    # and set title to cwd
+    title=$(short-cwd "$(active-window-cwd)")
+else
+    # create tle file
+    touch $tle_file_name
+    if [[ "$1" == "+" ]]; then
+        # set title to current title + params
+        title="$(active-window-title) ${@:2}"
+    else
+        # set title to params
+        title="$*"
+    fi
+fi
+
+xdotool getactivewindow set_window --name " $title"
+

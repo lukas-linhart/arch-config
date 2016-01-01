@@ -21,3 +21,13 @@ URxvt.clipboard.pastecmd: xsel -ob
 ! other ------------------------------------------
 !Xcursor.size: 16
 
+! theme-based settings ---------------------------
+URxvt.background: white
+URxvt.foreground: black
+URxvt.cursorColor: #ffcc00
+URxvt.cursorColor2: #000000
+
+URxvt.color10: rgb:00/88/00
+URxvt.color11: rgb:88/66/00
+URxvt.color12: rgb:00/88/cc
+

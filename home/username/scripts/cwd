@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# file: cwd
+
+exec echo $(pwd -P)
+

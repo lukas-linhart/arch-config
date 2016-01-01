@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# file: short-cwd
+
+# TODO: validate argument is valid directory
+
+if [[ -z $1 ]]; then
+    wd="$(pwd -P)"
+else
+    wd="$*"
+fi
+
+exec echo $(echo "$wd" | sed "s/\/home\/\\$USER/~/")
+

@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-tree -a -I .git
+tree -a -I .git -C

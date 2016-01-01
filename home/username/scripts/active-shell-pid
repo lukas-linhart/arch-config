@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# file: active-shell-pid
+
+ACTIVE_WINDOW_ID=$(xdotool getactivewindow)
+
+if [ -z "$ACTIVE_WINDOW_ID" ]; then
+    exec echo -1
+fi
+
+OWNER_PID=$(xdotool getwindowpid $ACTIVE_WINDOW_ID)
+CHILDREN_PIDS=$(ps -ef | awk '{print $2 " " $3}' | egrep $OWNER_PID\$ | awk '{print $1}')
+
+while read line; do
+    WINDOW_ID=$(</proc/$line/environ tr \\0 \\n | sed -n 's/^WINDOWID=//p')
+    if [ $WINDOW_ID = $ACTIVE_WINDOW_ID ]; then
+        ACTIVE_WINDOW_PID=$line
+    fi
+done <<< "$CHILDREN_PIDS"
+
+if [ -z "$ACTIVE_WINDOW_PID" ]; then
+    ACTIVE_WINDOW_PID=$OWNER_PID
+fi
+
+exec echo $ACTIVE_WINDOW_PID
+

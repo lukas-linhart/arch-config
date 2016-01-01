@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# file: ppid
+
+if [ -z "$1" ]; then
+    PID=$$
+else
+    PID=$1
+fi
+
+exec echo $(ps -ef | awk '{print $2 " " $3}' | grep ^$PID | awk '{print $2}')
+

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# file: _tle-file-prefix
+
+exec echo "/tmp/bash_tle_pid_"
+

@@ -1,26 +1,5 @@
 #!/usr/bin/env bash
+# file: term-from-here
 
-ACTIVE_WINDOW_ID=$(xdotool getactivewindow)
-
-if [ -z "$ACTIVE_WINDOW_ID" ]; then
-    exec urxvt
-fi
-
-OWNER_PID=$(xdotool getwindowpid $ACTIVE_WINDOW_ID)
-CHILDREN_PIDS=$(ps -ef | awk '{print $2 " " $3}' | egrep $OWNER_PID\$ | awk '{print $1}')
-
-while read line; do
-    WINDOW_ID=$(</proc/$line/environ tr \\0 \\n | sed -n 's/^WINDOWID=//p')
-    if [ $WINDOW_ID = $ACTIVE_WINDOW_ID ]; then
-        ACTIVE_WINDOW_PID=$line
-    fi
-done <<< "$CHILDREN_PIDS"
-
-if [ -z "$ACTIVE_WINDOW_PID" ]; then
-    ACTIVE_WINDOW_PID=$OWNER_PID
-fi
-
-ACTIVE_WINDOW_CWD=$(ls -al /proc/$ACTIVE_WINDOW_PID/cwd | awk '{print $(NF)}')
-
-exec urxvt -cd $ACTIVE_WINDOW_CWD
+exec urxvt -cd "$(active-window-cwd)"
 
